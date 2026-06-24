@@ -13,10 +13,8 @@ def cinema_visit(
 
     hall = CinemaHall(hall_number)
     cleaner_init = Cleaner(cleaner)
-    customers_list = []
-
-    for customer in customers:
-        customers_list.append(Customer(customer["name"], customer["food"]))
+    customers_list = [Customer(customer["name"], customer["food"])
+                      for customer in customers]
 
     for customer in customers_list:
         CinemaBar.sell_product(customer=customer, product=customer.food)
